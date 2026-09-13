@@ -115,7 +115,7 @@ warehouse_waypoint_nav_mai_mohsen/
 | Mapping | Builds the occupancy grid map | `slam_toolbox_demo` |
 | Localization | Estimates robot pose within the map | `robot_localization` |
 | Navigation | Global/local planning, obstacle avoidance, recovery behaviors | `robot_navigation` |
-| Mission Logic | Sends ordered goals, handles the timed wait, reports failures | `waypoint_mission` |
+| Mission Logic | Sends ordered goals, handles the timed wait, reports failures | `warehouse_waypoint` |
 | Visualization | Renders map, TF, costmaps, and waypoint markers | RViz2 |
 
 ---
