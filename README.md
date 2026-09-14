@@ -511,15 +511,21 @@ or, if a goal is rejected outright:
 ``` 
 [tf2_buffer]: Detected jump back in time. Clearing TF buffer.
 ```
-**when**: The problem appeared in Navigation
-**why**: Two `ros_gz_bridge` instances ended up running at the same time, each of them published at `/clock` independently. One was the nav2 launch file and the other was the `turtlebot3_gazebo` bridge, started separately inside `spawn_turtlebot3.launch.py` via `turtlebot3_burger_bridge.yaml`. 
-**solution**: The fix was to kill all background processes and remove the redundant `ros_gz_bridge` node entirely from `spawn_turtlebot3.launch.py`.
+
+  **when**: The problem appeared in Navigation
+  
+  **why**: Two `ros_gz_bridge` instances ended up running at the same time, each of them published at `/clock` independently. One was the nav2 launch file and the other was the `turtlebot3_gazebo` bridge, started separately inside `spawn_turtlebot3.launch.py` via `turtlebot3_burger_bridge.yaml`. 
+  
+  **solution**: The fix was to kill all background processes and remove the redundant `ros_gz_bridge` node entirely from `spawn_turtlebot3.launch.py`.
 
 2.
-**Inaccurate mapping**
-**when**: The problem appeared during SLAM/mapping
-**why**: The laser scan wasn't reaching far enough to detect surrounding obstacles, resulting in poor obstacle readings and an inaccurate map.
-**solution**: The fix was to increase the laser scan's max range parameter to 10.0 (in .sdf files in `turtlebot3_gazebo/models/`, allowing the LIDAR to properly detect obstacles at the required distances and produce a correct map.
+**Inaccurate mapping:**
+  
+  **when**: The problem appeared during SLAM/mapping
+  
+  **why**: The laser scan wasn't reaching far enough to detect surrounding obstacles, resulting in poor obstacle readings and an inaccurate map.
+  
+  **solution**: The fix was to increase the laser scan's max range parameter to 10.0 (in .sdf files in `turtlebot3_gazebo/models/`, allowing the LIDAR to properly detect obstacles at the required distances and produce a correct map.
 
 ---
 ## 7. Full Demo
